@@ -145,6 +145,7 @@ return [
 		'Chancrapper\Providers\EventServiceProvider',
 		'Chancrapper\Providers\RouteServiceProvider',
 
+		'TwigBridge\ServiceProvider',
 	],
 
 	/*
