@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Chancrapper
+        psr4_prefix: Chancrapper
+        src_path: app
