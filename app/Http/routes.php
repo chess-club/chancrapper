@@ -7,7 +7,7 @@ Route::get('/', function() {
 	return View::make("home", ['rows' => $rows]);
 });
 
-Route::get('/view/{id}', function($id) {
+Route::get('/view/{id}', ['as' => 'view_id', function($id) {
 	$row = Scrape::find($id);
 	return View::make("view", ['row' => $row]);
-})->where(['id' => '[0-9]+']);
+}])->where(['id' => '[0-9]+']);
