@@ -1,0 +1,15 @@
+{% extends 'app.twig' %}
+
+{% block content %}
+
+<div class="container-fluid">
+	{{row.nick}} on {{row.chan}} at {{row.timestamp}}
+	<pre>&lt;{{row.nick}}&gt; {{row.msg}}</pre>
+	{% if row.filetype == 'webm' %}
+	<video autoplay loop src="{{row.fullsize_url}}" />
+	{% else %}
+	<img src="{{ row.fullsize_url }}" title="{{row.msg}}" class="fullsize img-responsive" />
+	{% endif %}
+</div>
+
+{% endblock %}

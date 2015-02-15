@@ -1,17 +1,23 @@
 {% extends 'app.twig' %}
 
 {% block content %}
-<div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-default">
-				<div class="panel-heading">Home</div>
-
-				<div class="panel-body">
-					You are logged in!
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container-fluid">
+	{% for row in rows %}
+		<a href="/view/{{row.id}}" class="thumbnail" style="display: inline-block; width: 100px; height: 75px;">
+			<img src="{{ row.thumbnail_url }}" title="{{row.msg}}" style="max-width: 100%; max-height: 100%;" />
+		</a>
+	{% endfor %}
 </div>
 {% endblock %}
+
+{% block navbar %}
+<div class="pull-right">
+{{ rows.render() | raw }}
+</div>
+{% endblock %}
+
+{% block head %}
+<style>
+.pagination {margin: 5px;}
+</style>
+{% endblock head %}
