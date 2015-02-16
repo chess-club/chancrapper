@@ -1,0 +1,12 @@
+{% extends 'app.twig' %}
+
+{% block content %}
+<div class="container-fluid">
+	{% for row in rows %}
+	<a href="{{route('by_nick', row.nick)}}" class="thumbnail" style="text-align: center; display: inline-block; width: 100px; height: 75px;">
+			<span style="padding: 4px; max-width: 100%;">{{row.nick}}</span>
+			<img src="{{ row.thumbnail_url }}" title="{{row.msg}}" style="max-width: 100%; max-height: 70%;" />
+		</a>
+	{% endfor %}
+</div>
+{% endblock %}

@@ -21,3 +21,8 @@ Route::get('/chan/{chan}', ['as' => 'by_chan', function($chan) {
 	$rows = Scrape::where('chan', '=', '#' . $chan)->orderBy('id', 'desc')->paginate(50);
 	return View::make("listing", ['rows' => $rows]);
 }])->where(['chan' => '[a-zA-Z0-9\-_]+']);
+
+Route::get('/nicks', ['as' => 'nick_list', function() {
+    $rows = Scrape::select('nick', 'id', 'locnam')->groupBy('nick')->orderBy('id', 'desc')->get();
+    return View::make("nick_list", ['rows' => $rows]);
+}]);
