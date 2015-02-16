@@ -15,7 +15,7 @@ Route::get('/view/{id}', ['as' => 'view_id', function($id) {
 Route::get('/nick/{nick}', ['as' => 'by_nick', function($nick) {
 	$rows = Scrape::where('nick', '=', $nick)->orderBy('id', 'desc')->paginate(50);
 	return View::make("listing", ['rows' => $rows]);
-}])->where(['nick' => '[a-zA-Z0-9\-_]+']);
+}])->where(['nick' => '[a-zA-Z0-9\-_\[\]\^|]+']);
 
 Route::get('/chan/{chan}', ['as' => 'by_chan', function($chan) {
 	$rows = Scrape::where('chan', '=', '#' . $chan)->orderBy('id', 'desc')->paginate(50);
