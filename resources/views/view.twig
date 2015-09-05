@@ -3,7 +3,11 @@
 {% block content %}
 
 <div class="container-fluid">
-	<a href="{{url('/nick', row.nick)}}">{{row.nick}}</a> on {{row.chan}} at {{row.timestamp}}. md5: <a href="{{url('/search')}}?query={{row.hash}}" title="View same">{{row.hash}}</a>
+	<a href="{{url('/nick', row.nick)}}">{{row.nick}}</a> on {{row.chan}} at {{row.timestamp}}.
+	<a href="{{url('/search')}}?query={{row.hash}}">[same]</a>
+	<a href="https://www.google.com/searchbyimage?image_url={{row.thumbnail_url}}">[google]</a>
+	<a href="http://iqdb.org/?url={{row.thumbnail_url}}">[iqdb]</a>
+	<a href="http://saucenao.com/search.php?url={{row.thumbnail_url}}">[saucenao]</a>
 	<pre>&lt;{{row.nick}}&gt; {{row.msg}}</pre>
 	{% if row.filetype == 'webm' %}
 	<video autoplay loop src="{{row.fullsize_url}}" />
