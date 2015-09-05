@@ -33,6 +33,7 @@ Route::get("/search", ['as' => 'search', function() {
 	if ($rows->count() == 1) {
 		return redirect()->route('view_id', $rows->first()->id);
 	} else {
-		return View::make("listing", ['rows' => $rows->paginate(50)]);
+		$rows = $rows->orderBy('id', 'desc')->paginate(50);
+		return View::make("listing", ['rows' => $rows]);
 	}
 }]);
