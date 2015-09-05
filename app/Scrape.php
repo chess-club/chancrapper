@@ -6,7 +6,7 @@ class Scrape extends Model {
 	protected $table = 'scrape';
 
 	public function getFullSizeUrlAttribute() {
-		return $_ENV['IMAGE_BASE_URL'].$this->locnam;
+		return env('IMAGE_BASE_URL').$this->locnam;
 	}
 
 	public function getThumbnailName() {
@@ -14,7 +14,7 @@ class Scrape extends Model {
 	}
 
 	public function getThumbnailUrlAttribute() {
-		return $_ENV['IMAGE_BASE_URL'].$this->getThumbnailName();
+		return env('IMAGE_BASE_URL').$this->getThumbnailName();
 	}
 
 	public function getFiletypeAttribute() {
