@@ -26,3 +26,13 @@ Route::get('/nicks', ['as' => 'nick_list', function() {
     $rows = Scrape::select('nick', 'id', 'locnam')->groupBy('nick')->orderBy('id', 'desc')->get();
     return View::make("nick_list", ['rows' => $rows]);
 }]);
+
+Route::get("/search", ['as' => 'search', function() {
+	Request::flash();
+	$rows = Scrape::search(Input::get('query'));
+	if ($rows->count() == 1) {
+		return redirect()->route('view_id', $rows->first()->id);
+	} else {
+		return View::make("listing", ['rows' => $rows->paginate(50)]);
+	}
+}]);
