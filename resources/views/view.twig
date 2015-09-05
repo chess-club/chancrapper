@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container-fluid">
-	{{row.nick}} on {{row.chan}} at {{row.timestamp}}
+	<a href="{{url('/nick', row.nick)}}">{{row.nick}}</a> on {{row.chan}} at {{row.timestamp}}. md5: <a href="{{url('/search')}}?query={{row.hash}}" title="View same">{{row.hash}}</a>
 	<pre>&lt;{{row.nick}}&gt; {{row.msg}}</pre>
 	{% if row.filetype == 'webm' %}
 	<video autoplay loop src="{{row.fullsize_url}}" />
