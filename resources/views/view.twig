@@ -8,6 +8,7 @@
 	<a href="https://www.google.com/searchbyimage?image_url={{row.thumbnail_url}}">[google]</a>
 	<a href="http://iqdb.org/?url={{row.thumbnail_url}}">[iqdb]</a>
 	<a href="http://saucenao.com/search.php?url={{row.thumbnail_url}}">[saucenao]</a>
+	<a href="https://archive.moe/a/search/image/{{row.fuuka_hash}}">[archive.moe]</a>
 	<pre>&lt;{{row.nick}}&gt; {{row.msg}}</pre>
 	{% if row.filetype == 'webm' %}
 	<video autoplay loop src="{{row.fullsize_url}}" />

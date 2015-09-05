@@ -21,6 +21,11 @@ class Scrape extends Model {
 		return pathinfo($this->locnam, PATHINFO_EXTENSION);
 	}
 
+	public function getFuukaHashAttribute() {
+		return str_replace(['+', '/', '='], ['-', '_', ''],
+			base64_encode(hex2bin($this->hash)));
+	}
+
 	static function search($input) {
 		$query = self::query();
 
